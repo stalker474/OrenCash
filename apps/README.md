@@ -68,6 +68,6 @@ Allows to check miners' status, to start and stop it. (for the moment all messag
 
 Displays the list of the pending transactions, can also display detail of a completed transaction
 
-# wallet.html
+## wallet.html
 
 Allows you to manage your OrenCash wallet, generate adresses and order transactions
