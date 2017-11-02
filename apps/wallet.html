@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Wallet</title>
+    </head>
+
+    <body>
+        <script src="commontools.js"></script>
+        <button type="submit" onclick="GenerateAddress()">Create new address</button>
+        <ul id="addresses">
+
+        </ul>
+        <form>
+            From:<br>
+            <input type="text" name="from" id="from"><br>
+            To:<br>
+            <input type="text" name="to" id="to"><br>
+            Amount:<br>
+            <input type="number" name="amount" id="amount"><br>
+            <input type="number" name="fee" id="fee" value="50"><br>
+            <input type="button" value="Send transaction" onclick="CreateTransaction('from','to','amount','fee')">
+          </form>
+        </br>
+        <input type="text" name="to" id="result"><br>
+    </body>
+</html>

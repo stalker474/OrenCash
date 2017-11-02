@@ -1,0 +1,205 @@
+body
+{
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+}
+
+li span
+{
+    padding-left: 20px;
+}
+
+ul
+{
+    list-style-type : none;
+}
+
+.section
+{
+    font-size : large;
+}
+
+/****************************************/
+/*************** valeurs ****************/
+/****************************************/
+
+.name
+{
+    float : left;
+    width : 20%;
+}
+
+.hash .value
+, .previousHash .value
+, .address .value
+, .signature .value
+{
+    font-size: small;
+    text-overflow: ellipsis;
+    display: inline-block;
+    overflow: hidden;
+    width: 60%;
+}
+
+/****************************************/
+/**************** block *****************/
+/****************************************/
+
+.blocks
+{
+    margin: auto;
+    width: 50%;
+}
+
+.block
+{
+    margin-bottom : 50px;
+}
+
+/****************************************/
+/*********** description block **********/
+/****************************************/
+
+.block > .Block_index
+{
+    padding: 40px 0 40px 0;
+    background: #111146 !important;
+    color : white;
+}
+
+.block > .Block_index
+{
+    font-size: x-large;
+}
+
+.block > .Block_index .name
+{
+    width : 200px;
+}
+
+.block > .section
+{
+    margin-top: 20px;
+    display: block;
+    background: #464646 !important;
+    color : white;
+    margin-left: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+
+.block > li
+{
+    padding: 10px 0 10px 0;
+    background: #D3D3D3;
+    margin-left: 20px;
+}
+
+.block > li:nth-child(odd) 
+{
+    background: #FAFAFA;
+}
+
+ul
+{
+    padding: 0;
+}
+
+/****************************************/
+/************* transactions *************/
+/****************************************/
+
+li .starttransactions
+{
+    background: none !important;
+}
+
+.transaction
+{
+    padding-bottom: 30px;
+}
+
+.transaction > li
+{
+    padding: 10px 0 10px 0;
+    background: #D3D3D3;
+}
+
+.transaction > li:nth-child(odd) 
+{
+    background: #FAFAFA;
+}
+
+.transaction .info
+{
+    background : white !important;
+}
+
+.starttransactions,
+.starttransactions > ul > li,
+.info,
+.info > ul > li
+{
+    padding: 0;
+}
+
+.transaction .section
+{
+    margin-top: 20px;
+    display: block;
+    color : white;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/****************************************/
+/**************** inputs ****************/
+/****************************************/
+
+.transaction .id
+{
+    font-weight : bold;
+}
+.transaction .inputs .section
+{
+    background: #19843f !important;
+    color : white;
+}
+
+.transaction .outputs .section
+{
+    background: #C94A10 !important;
+    color : white;
+}
+
+.transaction .inputs .input
+{
+    margin-top : 20px;
+}
+
+.transaction .outputs .output
+{
+    margin-top : 20px;
+}
+
+.transaction .input > li
+{
+    padding: 10px 0 10px 0;
+    background: #D3D3D3;
+}
+
+.transaction .input > li:nth-child(odd) 
+{
+    background: #FAFAFA;
+}
+
+.transaction .output > li
+{
+    padding: 10px 0 10px 0;
+    background: #D3D3D3;
+}
+
+.transaction .output > li:nth-child(odd) 
+{
+    background: #FAFAFA;
+}

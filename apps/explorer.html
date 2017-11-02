@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <title>Blockchain explorer</title>
+        <link rel="stylesheet" type="text/css" href="blockchain.css">
+    </head>
+
+    <body>
+        <script src="commontools.js"></script>
+        <div id="blocks">
+
+        </div>
+        <script language="JavaScript">
+            var ul = document.getElementById("blocks");
+            var parameters = location.search.substring(1).split("&");
+        
+            var temp = parameters[0].split("=");
+            value = unescape(temp[1]);
+            if(temp[0]=="id")
+                GetBlocks(ul,value,null);
+            else if(temp[0]=="hash")
+                GetBlocks(ul,null,value);
+            else
+                GetBlocks(ul,null,null);
+        </script>
+    </body>
+</html>

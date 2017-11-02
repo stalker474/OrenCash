@@ -30,3 +30,13 @@
 *.exe
 *.out
 *.app
+
+# Platform Specific
+*.filters
+*.cmake
+
+orencash/src/build
+orencash/src/CMakeFiles
+orencash/vendor
+orencash/bin-vs15
+orencash/lib-vs15
