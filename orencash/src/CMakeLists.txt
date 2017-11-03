@@ -38,8 +38,9 @@ if(CMAKE_BUILD_TYPE STREQUAL "Release")
   set(CMAKE_LIBRARY_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_REL}")
   set(CMAKE_ARCHIVE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_REL}")
   set(CMAKE_EXECUTABLE_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/${OUTPUT_REL}")
-  
-  set(BOOST_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/../vendor/boost_1_64_0")
+endif()
+
+  set(BOOST_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/../vendor/boost_1_65_1")
   set(ED25519_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/../vendor/ed25519/src")
   set(SQLITE3_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/../vendor/sqlite3")
   set(RESTBED_INCLUDE_DIR "${CMAKE_SOURCE_DIR}/../vendor/restbed/source")
@@ -57,7 +58,6 @@ if(CMAKE_BUILD_TYPE STREQUAL "Release")
   set(CRYPTOPP_LIB_DIR "${CMAKE_SOURCE_DIR}/../lib-vs15/x64/")
   set(LIBODB_LIB_DIR "${CMAKE_SOURCE_DIR}/../lib-vs15/x64/")
   set(LIBODB_SQLITE_LIB_DIR "${CMAKE_SOURCE_DIR}/../lib-vs15/x64/")
-endif()
 
 ################# Flags ################
 # Defines Flags for Windows and Linux. #

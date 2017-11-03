@@ -6,8 +6,7 @@
 #include <sstream>
 #include "CryptoHelpers.h"
 #include "Config.h"
-
-#include <boost\archive\text_oarchive.hpp>
+#include <boost/archive/text_oarchive.hpp>
 #include <boost/serialization/vector.hpp>
 
 namespace orencash

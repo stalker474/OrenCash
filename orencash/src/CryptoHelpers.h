@@ -8,6 +8,8 @@
 #include <random>
 #include <assert.h>
 
+using byte = unsigned char;
+
 const std::string SALT = "0ffaa74d206930aaece253f090c88dbe6685b9e66ec49ad988d84fd7dff230d1";
 
 namespace CryptoHelp

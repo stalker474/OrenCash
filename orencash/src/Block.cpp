@@ -58,7 +58,7 @@ Block::Block(const Block & Copy) : Block(Copy.GetIndex(),Copy.GetPreviousHash(),
 
 const Transaction & Block::GetTransactionById(const uint64_t & Id) const
 {
-	auto& res = std::find_if(Transactions.begin(),Transactions.end(),
+    const auto& res = std::find_if(Transactions.begin(),Transactions.end(),
 		[Id](const Transaction& transaction)
 	{
 		return transaction.GetID() == Id;
