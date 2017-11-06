@@ -1,5 +1,5 @@
 #include "RPC.h"
-#include <boost\bind.hpp>
+#include <boost/bind.hpp>
 #include "Node.h"
 
 using namespace orencash;
@@ -84,8 +84,7 @@ void P2PServer::JoinKnownPeers()
 	for (const auto& addr : Addresses)
 	{
 		Clients.push_back(std::make_shared<rpc::client>(addr.host, addr.port));
-		PeerAddress addr(PublicAddr,MyPort,0);
-		Clients.back()->async_call("AcceptPeer", Serialize(addr));
+        Clients.back()->async_call("AcceptPeer", Serialize(PeerAddress(PublicAddr,MyPort,0)));
 	}
 	PeersListMutex.unlock();
 

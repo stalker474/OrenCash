@@ -7,7 +7,7 @@
 #include "CryptoHelpers.h"
 #include "Config.h"
 
-#include <boost\archive\text_oarchive.hpp>
+#include <boost/archive/text_oarchive.hpp>
 #include <boost/serialization/vector.hpp>
 
 namespace orencash
@@ -185,7 +185,7 @@ namespace orencash
 			Msg = msg;
 		}
 
-		virtual char const* what() const override
+        virtual const char* what() const noexcept override
 		{
 			return Msg.c_str();
 		}

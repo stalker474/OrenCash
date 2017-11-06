@@ -133,7 +133,7 @@ void Blockchain::ValidateBlock(const Block & BlockToValidate, const Block& Previ
 void Blockchain::ValidateTransaction(const Transaction & TransactionToValidate)
 {
 	TransactionToValidate.Validate();
-	BlockPtrList& blocks = GetAllBlocks();
+    const BlockPtrList& blocks = GetAllBlocks();
 	//verify if transaction isnt already present in the blockchain
 	for(const auto& block : blocks)
 	{

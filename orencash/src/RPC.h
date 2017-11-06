@@ -5,8 +5,8 @@
 #include <sstream>
 #include <string>
 
-#include <boost\archive\text_oarchive.hpp>
-#include <boost\archive\text_iarchive.hpp>
+#include <boost/archive/text_oarchive.hpp>
+#include <boost/archive/text_iarchive.hpp>
 #include <boost/serialization/vector.hpp>
 
 #include <rpc/client.h>
@@ -84,7 +84,7 @@ namespace orencash
 		std::vector<PeerAddress> MyPeers;
 	};
 
-	class NetworkListenerInterface abstract
+    class NetworkListenerInterface
 	{
 	public:
 		virtual void OnReceivedBlockchain(const std::vector<Block>& Blocks) = 0;

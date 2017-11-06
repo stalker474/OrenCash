@@ -1,7 +1,6 @@
 #include "Blockchain.h"
 #include "Operator.h"
 #include "Miner.h"
-#include "P2P.h"
 #include "Node.h"
 #include "HTTPServer.h"
 

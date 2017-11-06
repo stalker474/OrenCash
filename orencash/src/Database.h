@@ -25,7 +25,9 @@ namespace orencash
 	public:
 		explicit Database(std::string Name)
 			: Name(Name)
+#ifdef WITH_ODB
 			,ConnectionObject(nullptr) 
+#endif
 		{};
 
 		bool								Connect(const std::string& User="", const std::string& Password="") noexcept;
@@ -51,8 +53,10 @@ namespace orencash
 
 
 	private:
+#ifdef WITH_ODB
 		void								Persist(const Block& NewBlock);
 		void								Persist(const Wallet& NewWallet);
+#endif
 
 		std::string								Name;
 #ifdef WITH_ODB
@@ -71,7 +75,7 @@ namespace orencash
 			Msg = msg;
 		}
 
-		virtual char const* what() const override
+        virtual char const* what() const noexcept override
 		{
 			return Msg.c_str();
 		}

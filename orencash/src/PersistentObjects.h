@@ -8,6 +8,8 @@
 
 #include "Config.h"
 
+#ifdef WITH_ODB
+
 #include <odb/core.hxx>
 
 namespace orencash
@@ -95,4 +97,6 @@ namespace orencash
 		};
 	}
 }
+#endif
+
 #endif

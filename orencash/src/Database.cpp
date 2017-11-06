@@ -74,7 +74,7 @@ bool Database::Disconnect()
 {
 	return true;
 }
-
+#ifdef WITH_ODB
 void Database::Persist(const Block & NewBlock)
 {
 	orencash::persist::Block block;
@@ -136,7 +136,7 @@ void Database::Persist(const Wallet & NewWallet)
 
 	ConnectionObject->persist(wallet);
 }
-
+#endif
 void Database::AddBlock(const Block & NewBlock)
 {
 	//for now we keep using RAM storage also
@@ -152,7 +152,7 @@ void Database::AddBlock(const Block & NewBlock)
 	}
 	catch (const odb::exception& e)
 	{
-		throw std::exception(e.what());
+        throw DatabaseException(e.what());
 	}
 #endif
 }
@@ -181,7 +181,7 @@ void Database::AddWallet(const Wallet & NewWallet)
 	}
 	catch (const odb::exception& e)
 	{
-		throw std::exception(e.what());
+        throw DatabaseException(e.what());
 	}
 #endif
 }

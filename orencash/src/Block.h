@@ -5,7 +5,7 @@
 
 #include <stdint.h>
 #include <time.h>
-#include <boost\archive\text_oarchive.hpp>
+#include <boost/archive/text_oarchive.hpp>
 
 namespace orencash
 {
@@ -20,13 +20,13 @@ namespace orencash
 			const std::string&		Hash);
 		Block(const Block&			Copy);
 
-		inline static Block				GetGenesis() noexcept { return Block(); };
+        inline static Block				GetGenesis() noexcept { return Block(); }
 
-		inline const uint64_t			GetIndex() const noexcept { return Index; };
-		inline const std::string		GetPreviousHash() const noexcept { return PreviousHash; };
-		inline const time_t				GetTimeStamp() const noexcept { return TimeStamp; };
-		inline const uint64_t			GetNonce() const noexcept { return Nonce; };
-		inline const std::string		GetHash() const noexcept { return Hash; };
+        inline const uint64_t			GetIndex() const noexcept { return Index; }
+        inline const std::string		GetPreviousHash() const noexcept { return PreviousHash; }
+        inline const time_t				GetTimeStamp() const noexcept { return TimeStamp; }
+        inline const uint64_t			GetNonce() const noexcept { return Nonce; }
+        inline const std::string		GetHash() const noexcept { return Hash; }
 		inline const TransactionList&	GetTransactions() const noexcept { return Transactions; }
 		const Transaction&				GetTransactionById(const uint64_t& Id) const;
 		uint64_t						GetDifficulty() const noexcept;
@@ -71,7 +71,7 @@ namespace orencash
 			Msg = msg;
 		}
 
-		virtual char const* what() const override
+        virtual char const* what() const noexcept override
 		{
 			return Msg.c_str();
 		}

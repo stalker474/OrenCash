@@ -63,8 +63,8 @@ std::string orencash::Wallet::GetAddressByIndex(const uint64_t & Index) const
 
 std::string orencash::Wallet::GetAddressByPublicKey(const std::string & publicKey) const
 {
-	auto res = std::find_if(Keypairs.begin(), Keypairs.end(), 
-		[&](auto& pair) 
+    const auto& res = std::find_if(Keypairs.begin(), Keypairs.end(),
+        [&](const KeyPair& pair)
 	{
 		return pair.first == publicKey;
 	});
@@ -76,7 +76,7 @@ std::string orencash::Wallet::GetAddressByPublicKey(const std::string & publicKe
 std::string orencash::Wallet::GetSecretKeyByAddress(const std::string & Address) const
 {
 	auto res = std::find_if(Keypairs.begin(), Keypairs.end(), 
-		[&](auto& pair) 
+        [&](const KeyPair& pair)
 	{
 		return pair.first == Address;
 	});

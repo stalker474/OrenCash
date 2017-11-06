@@ -3,6 +3,7 @@
 
 #include "Blockchain.h"
 #include <memory>
+#include <thread>
 
 namespace orencash
 {
@@ -45,7 +46,7 @@ namespace orencash
 			Msg = msg;
 		}
 
-		virtual char const* what() const override
+        virtual char const* what() const noexcept override
 		{
 			return Msg.c_str();
 		}

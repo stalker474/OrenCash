@@ -7,7 +7,7 @@
 
 namespace orencash
 {
-	class BlockchainListenerInterface abstract
+    class BlockchainListenerInterface
 	{
 	public:
 		virtual void OnBlockAdded(std::shared_ptr<Block> NewBlock) = 0;
@@ -62,7 +62,7 @@ namespace orencash
 			Msg = msg;
 		}
 
-		virtual char const* what() const override
+        virtual char const* what() const noexcept override
 		{
 			return Msg.c_str();
 		}
