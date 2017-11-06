@@ -1,0 +1,22 @@
+#ifndef CONFIG_H
+#define CONFIG_H
+
+//blockchain difficulty
+#define BASE_DIFFICULTY 7
+#define POW_CURVE 5
+#define EVERY_X_BLOCKS 1024
+
+//mining
+#define MINING_REWARD 5000000000
+#define MIN_FEE_PER_TRANSACTION 1
+#define MIN_TRANSACTION_COUNT_PER_BLOCK 1
+
+#define MINIMUM_TRANSACTION_FEES 50
+
+#define NO_LOG = false
+
+#define LOG(x) (std::cout << x << std::endl)
+
+#cmakedefine WITH_ODB @BUILD_WITH_ODB@
+
+#endif
