@@ -1,0 +1,12 @@
+[submodule "orencash/src/dependencies/rpclib"]
+	path = orencash/src/dependencies/rpclib
+	url = https://github.com/rpclib/rpclib
+[submodule "orencash/src/dependencies/cryptopp"]
+	path = orencash/src/dependencies/cryptopp
+	url = https://github.com/weidai11/cryptopp
+[submodule "orencash/src/dependencies/ed25519"]
+	path = orencash/src/dependencies/ed25519
+	url = https://github.com/orlp/ed25519
+[submodule "orencash/src/dependencies/restbed"]
+	path = orencash/src/dependencies/restbed
+	url = https://github.com/Corvusoft/restbed
