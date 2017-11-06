@@ -200,7 +200,7 @@ const std::vector<AddressPair> Database::GetAddressesForWallet(const uint64_t & 
 	}
 	);
 	if (res == Wallets.end())
-		throw std::exception("Wallet id not found");
+		throw DatabaseException("Wallet id not found");
 	return res[0]->GetKeypairs();
 }
 
@@ -224,7 +224,7 @@ const std::shared_ptr<Block> Database::GetBlockByIndex(uint64_t Index) const
 		return elem->GetIndex() == Index;
 	});
 	if (res == Blocks.end())
-		throw std::exception("Block index not found");
+		throw DatabaseException("Block index not found");
 
 	return res[0];
 }
@@ -237,7 +237,7 @@ const std::shared_ptr<Block> Database::GetBlockByHash(std::string Hash) const
 		return elem->GetHash() == Hash;
 	});
 	if (res == Blocks.end())
-		throw std::exception("Block Hash not found");
+		throw DatabaseException("Block Hash not found");
 
 	return res[0];
 }
@@ -260,7 +260,7 @@ const std::shared_ptr<Transaction> Database::GetTransactionById(const uint64_t &
 	if (res != Transactions.end())
 		return *res;
 	else
-		throw std::exception("Transaction id not found");
+		throw DatabaseException("Transaction id not found");
 }
 
 const std::shared_ptr<Wallet> Database::GetWalletById(const uint64_t & ID)
@@ -271,7 +271,7 @@ const std::shared_ptr<Wallet> Database::GetWalletById(const uint64_t & ID)
 		return elem->GetID() == ID;
 	});
 	if (res == Wallets.end())
-		throw std::exception("Wallet id not found");
+		throw DatabaseException("Wallet id not found");
 	return res[0];
 }
 

@@ -39,7 +39,7 @@ void Blockchain::ReplaceChain(const BlockList& Blocks)
 	//TODO : do not fetch all blocks just for counting!
 	BlockPtrList currentBlocks = GetAllBlocks();
 	if (Blocks.size() <= currentBlocks.size())
-		throw std::exception("Blockchain is shorter than the current blockchain");
+		throw BlockChainException("Blockchain is shorter than the current blockchain");
 
 	Checkchain(Blocks);
 
@@ -63,7 +63,7 @@ void Blockchain::Checkchain(const BlockList& Blocks)
 		std::shared_ptr<Block> genesis = Db->GetBlockByIndex(0);
 		//check genesis
 		if(Blocks.at(0).Serialize() != genesis->Serialize())
-			throw std::exception("Genesis blocks arent the same");
+			throw BlockChainException("Genesis blocks arent the same");
 		//validate chain
 		for(size_t i = 1; i < Blocks.size(); ++i)
 		{
@@ -76,7 +76,7 @@ void Blockchain::Checkchain(const BlockList& Blocks)
 				std::stringstream str;
 				str << "invalid block sequence, block error :";
 				str << e.what();
-				throw std::exception(str.str().c_str());
+				throw BlockChainException(str.str().c_str());
 			}
 		}
 	}
@@ -87,13 +87,13 @@ void Blockchain::ValidateBlock(const Block & BlockToValidate, const Block& Previ
 	std::string hash = BlockToValidate.To_SHA256();
 
 	if (PreviousBlock.GetIndex() + 1 != BlockToValidate.GetIndex())
-		throw std::exception("Invalid previous block index");
+		throw BlockChainException("Invalid previous block index");
 	if (PreviousBlock.GetHash() != BlockToValidate.GetPreviousHash())
-		throw std::exception("Invalid previous block hash");
+		throw BlockChainException("Invalid previous block hash");
 	if (BlockToValidate.GetHash() != hash)
-		throw std::exception("Invalid block hash");
+		throw BlockChainException("Invalid block hash");
 	if (BlockToValidate.GetDifficulty() >= GetDifficulty(BlockToValidate.GetIndex()))
-		throw std::exception("Invalid proof of work difficulty");
+		throw BlockChainException("Invalid proof of work difficulty");
 
 	for(const Transaction& transact : BlockToValidate.GetTransactions())
 		ValidateTransaction(transact);
@@ -110,7 +110,7 @@ void Blockchain::ValidateBlock(const Block & BlockToValidate, const Block& Previ
 	}
 
 	if (inputSum + MINING_REWARD > outputSum)
-		throw std::exception("Invalid block balance");
+		throw BlockChainException("Invalid block balance");
 
 	size_t feeTransactionsCount = 0;
 	size_t rewardTransactionsCount = 0;
@@ -124,10 +124,10 @@ void Blockchain::ValidateBlock(const Block & BlockToValidate, const Block& Previ
 	}
 
 	if (feeTransactionsCount > 1)
-		throw std::exception("Invalid fee transaction count");
+		throw BlockChainException("Invalid fee transaction count");
 
 	if (rewardTransactionsCount != 1)
-		throw std::exception("Invalid reward transaction count");
+		throw BlockChainException("Invalid reward transaction count");
 }
 
 void Blockchain::ValidateTransaction(const Transaction & TransactionToValidate)
@@ -140,7 +140,7 @@ void Blockchain::ValidateTransaction(const Transaction & TransactionToValidate)
 		for(const Transaction& trans : block->GetTransactions())
 		{
 			if (trans.GetID() == TransactionToValidate.GetID())
-				throw std::exception("Transaction already in the blockchain");
+				throw BlockChainException("Transaction already in the blockchain");
 		}
 	}
 	//verify if all input transactions are unspent in the blockchain
@@ -152,7 +152,7 @@ void Blockchain::ValidateTransaction(const Transaction & TransactionToValidate)
 			{
 				for (const TransactionInput& input : TransactionToValidate.GetData().Inputs)
 					if (in.Address == input.Address && (in.Index == input.Index) && (in.TransactionID == input.TransactionID))
-						throw std::exception("Not all inputs are unspent for transaction");
+						throw BlockChainException("Not all inputs are unspent for transaction");
 			}
 		}
 	}

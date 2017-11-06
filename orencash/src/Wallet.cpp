@@ -69,7 +69,7 @@ std::string orencash::Wallet::GetAddressByPublicKey(const std::string & publicKe
 		return pair.first == publicKey;
 	});
 	if (res == Keypairs.end())
-		throw std::exception("Public key not found");
+		throw WalletException("Public key not found");
 	return res->first;
 }
 
@@ -81,7 +81,7 @@ std::string orencash::Wallet::GetSecretKeyByAddress(const std::string & Address)
 		return pair.first == Address;
 	});
 	if (res == Keypairs.end())
-		throw std::exception("Public key not found");
+		throw WalletException("Public key not found");
 	return res->second;
 }
 

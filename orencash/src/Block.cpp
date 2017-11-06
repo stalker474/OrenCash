@@ -58,7 +58,7 @@ Block::Block(const Block & Copy) : Block(Copy.GetIndex(),Copy.GetPreviousHash(),
 
 const Transaction & Block::GetTransactionById(const uint64_t & Id) const
 {
-    const auto& res = std::find_if(Transactions.begin(),Transactions.end(),
+	auto& res = std::find_if(Transactions.begin(),Transactions.end(),
 		[Id](const Transaction& transaction)
 	{
 		return transaction.GetID() == Id;
@@ -67,7 +67,7 @@ const Transaction & Block::GetTransactionById(const uint64_t & Id) const
 	if (res != Transactions.end())
 		return *res;
 	else
-		throw std::exception("Transaction id not found");
+		throw BlockException("Transaction id not found");
 }
 
 const std::string Block::To_SHA256() const

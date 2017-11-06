@@ -31,6 +31,23 @@ namespace orencash
 		std::unique_ptr<Database>	Db;
 		std::shared_ptr<Blockchain> MyBlockchain;
 	};
+
+	class OperatorException : public std::exception
+	{
+	public:
+		OperatorException(const std::string& msg)
+		{
+			Msg = msg;
+		}
+
+		virtual char const* what() const override
+		{
+			return Msg.c_str();
+		}
+
+	private:
+		std::string Msg;
+	};
 }
 
 #endif

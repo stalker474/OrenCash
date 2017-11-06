@@ -37,6 +37,23 @@ namespace orencash
 		std::string					Secret;
 		std::vector<KeyPair>		Keypairs; //key/secretkey
 	};
+
+	class WalletException : public std::exception
+	{
+	public:
+		WalletException(const std::string& msg)
+		{
+			Msg = msg;
+		}
+
+		virtual char const* what() const override
+		{
+			return Msg.c_str();
+		}
+
+	private:
+		std::string Msg;
+	};
 }
 
 #endif

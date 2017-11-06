@@ -5,7 +5,7 @@
 
 #include <stdint.h>
 #include <time.h>
-#include <boost/archive/text_oarchive.hpp>
+#include <boost\archive\text_oarchive.hpp>
 
 namespace orencash
 {
@@ -62,5 +62,22 @@ namespace orencash
 
 	using BlockList = std::vector<Block>;
 	using BlockPtrList = std::vector<std::shared_ptr<Block>>;
+
+	class BlockException : public std::exception
+	{
+	public:
+		BlockException(const std::string& msg)
+		{
+			Msg = msg;
+		}
+
+		virtual char const* what() const override
+		{
+			return Msg.c_str();
+		}
+
+	private:
+		std::string Msg;
+	};
 }
 #endif

@@ -6,7 +6,8 @@
 #include <sstream>
 #include "CryptoHelpers.h"
 #include "Config.h"
-#include <boost/archive/text_oarchive.hpp>
+
+#include <boost\archive\text_oarchive.hpp>
 #include <boost/serialization/vector.hpp>
 
 namespace orencash
@@ -174,6 +175,23 @@ namespace orencash
 		uint64_t					ID;
 		TransactionType				Type;
 		DataContent					Data;
+	};
+
+	class TransactionException : public std::exception
+	{
+	public:
+		TransactionException(const std::string& msg)
+		{
+			Msg = msg;
+		}
+
+		virtual char const* what() const override
+		{
+			return Msg.c_str();
+		}
+
+	private:
+		std::string Msg;
 	};
 }
 

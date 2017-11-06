@@ -64,11 +64,11 @@ namespace TransactionHelp
 		Transaction Build()
 		{
 			if (UTXOs.size() == 0)
-				throw std::exception("Must have UTXO list");
+				throw TransactionException("Must have UTXO list");
 			if(ToAddress.size() == 0)
-				throw std::exception("Must have a destination address");
+				throw TransactionException("Must have a destination address");
 			if (TotalAmount == 0)
-				throw std::exception("Cannot be a 0 amount transaction");
+				throw TransactionException("Cannot be a 0 amount transaction");
 
 			Transaction transaction(CryptoHelp::GenerateRandomID(), "", MyType);
 
@@ -78,7 +78,7 @@ namespace TransactionHelp
 				Amount += output.Amount;
 
 			if (TotalAmount > Amount - FeeAmount)
-				throw std::exception("Transaction is spending more than it has");
+				throw TransactionException("Transaction is spending more than it has");
 
 			uint64_t ChangeAmount = Amount - TotalAmount - FeeAmount;
 

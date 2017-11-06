@@ -62,6 +62,23 @@ namespace orencash
 		TransactionPtrList						Transactions;
 		WalletPtrList							Wallets;
 	};
+
+	class DatabaseException : public std::exception
+	{
+	public:
+		DatabaseException(const std::string& msg)
+		{
+			Msg = msg;
+		}
+
+		virtual char const* what() const override
+		{
+			return Msg.c_str();
+		}
+
+	private:
+		std::string Msg;
+	};
 }
 
 #endif

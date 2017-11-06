@@ -14,9 +14,8 @@ Miner::Miner(std::shared_ptr<Blockchain> MyBlockchain) : MyBlockchain(MyBlockcha
 
 void Miner::Mine(const std::string& Address)
 {
-	assert(!MyBlockchain.expired());
 	if (Address.size() == 0)
-		throw std::exception("Miner has no address to get rewarded to");
+		throw MinerException("Miner has no address to get rewarded to");
 	MyBlockchain->Subscribe(this);
 	MyBlockchain->Begin(this);
 	Block baseBlock = GenerateNextBlock(Address, MyBlockchain->GetLastBlock(), MyBlockchain->GetAllTransactions());
@@ -50,8 +49,7 @@ void Miner::Start(const std::string& Address)
 				}
 			}
 
-			LOG("Miner done");
-				
+			LOG("Miner done");	
 		});
 	}
 }

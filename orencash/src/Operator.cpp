@@ -70,14 +70,14 @@ uint64_t Operator::GetBalanceForWalletAddress(const std::string& Address)
 Transaction Operator::CreateTransaction(const uint64_t & WalletID, const std::string & FromAddress, const std::string & ToAddress, const uint64_t & Amount, const uint64_t & Fee, const std::string& ChangeAddress)
 {
 	if (Fee < MINIMUM_TRANSACTION_FEES)
-		throw std::exception("Fees must be higher");
+		throw OperatorException("Fees must be higher");
 	auto UTXOs = MyBlockchain->GetUnspentTransactionsForAddress(FromAddress);
 
 	auto wallet = GetWalletByID(WalletID);
 	
 	std::string secretKey = wallet->GetSecretKeyByAddress(FromAddress);
 	if (secretKey.size() == 0)
-		throw std::exception("Wallet secret key error");
+		throw OperatorException("Wallet secret key error");
 
 	TransactionHelp::TransactionBuilder builder;
 	builder.From(UTXOs);
@@ -96,11 +96,11 @@ Transaction Operator::CreateTransaction(const uint64_t & WalletID, const std::st
 Transaction Operator::CreateTransaction(const std::string & SecretKey, const std::string & FromAddress, const std::string & ToAddress, const uint64_t & Amount, const uint64_t & Fee, const std::string & ChangeAddress)
 {
 	if (Fee < MINIMUM_TRANSACTION_FEES)
-		throw std::exception("Fees must be higher");
+		throw OperatorException("Fees must be higher");
 	auto UTXOs = MyBlockchain->GetUnspentTransactionsForAddress(FromAddress);
 
 	if (SecretKey.size() == 0)
-		throw std::exception("Secret key error");
+		throw OperatorException("Secret key error");
 
 	TransactionHelp::TransactionBuilder builder;
 	builder.From(UTXOs);

@@ -53,6 +53,23 @@ namespace orencash
 		std::mutex									MyLock;
 		bool										ThreadSafeAccess;
 	};
+
+	class BlockChainException : public std::exception
+	{
+	public:
+		BlockChainException(const std::string& msg)
+		{
+			Msg = msg;
+		}
+
+		virtual char const* what() const override
+		{
+			return Msg.c_str();
+		}
+
+	private:
+		std::string Msg;
+	};
 }
 
 #endif

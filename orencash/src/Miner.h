@@ -36,6 +36,23 @@ namespace orencash
 		std::shared_ptr<std::thread>	MinerThread;
 		std::atomic<bool>				IsRunning;
 	};
+
+	class MinerException : public std::exception
+	{
+	public:
+		MinerException(const std::string& msg)
+		{
+			Msg = msg;
+		}
+
+		virtual char const* what() const override
+		{
+			return Msg.c_str();
+		}
+
+	private:
+		std::string Msg;
+	};
 }
 
 #endif

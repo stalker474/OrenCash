@@ -73,14 +73,14 @@ std::string Transaction::Serialize() const
 void Transaction::Validate() const
 {
 	if (Hash != To_SHA256())
-		throw std::exception("Invalid transaction hash");
+		throw TransactionException("Invalid transaction hash");
 
 	for(const TransactionInput& input : Data.Inputs)
 	{
 
 		bool isValidSignature = CryptoHelp::VerifySignature(input.Address, input.Signature, input.To_SHA256());
 		if (!isValidSignature)
-			throw std::exception("Invalid transaction input signature");
+			throw TransactionException("Invalid transaction input signature");
 	}
 
 	if(Type == TransactionType::REGULAR)
@@ -94,10 +94,10 @@ void Transaction::Validate() const
 			sumOutputs += output.Amount;
 
 		if (!(sumInputs >= sumOutputs))
-			throw std::exception("Invalid transaction balance");
+			throw TransactionException("Invalid transaction balance");
 
 		if (sumInputs - sumOutputs < MINIMUM_TRANSACTION_FEES)
-			throw std::exception("Not enough fee");
+			throw TransactionException("Not enough fee");
 	}
 }
 
