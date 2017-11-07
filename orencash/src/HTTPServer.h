@@ -1,5 +1,5 @@
 #ifndef HTTPSERVER_H
-#define HTTP_SERVER_H
+#define HTTPSERVER_H
 
 #include <restbed>
 #include <memory>
