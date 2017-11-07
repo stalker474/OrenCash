@@ -18,9 +18,9 @@ echo "Compiling rpclib..."
 cd rpclib
 mkdir build
 cd build
-sudo -i cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
+sudo cmake ..
 make
-sudo -i make install
+sudo make install
 cd ..
 cd ..
 echo "rpclib up to date"
@@ -28,7 +28,7 @@ echo "rpclib up to date"
 echo "Compiling cryptopp..."
 cd cryptopp
 make
-sudo -i make install
+sudo make install
 cd ..
 echo "cryptopp up to date"
 
@@ -38,10 +38,10 @@ git submodule init
 git submodule update
 mkdir build
 cd build
-sudo -i cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/lib -DBUILD_SSL=OFF ..
+sudo cmake -DBUILD_SSL=OFF ..
 make
-sudo -i make install
-sudo -i mv librestbed.a /usr/lib
+sudo make install
+sudo mv librestbed.a /usr/lib
 cd ..
 cd ..
 echo "restbed up to date"
