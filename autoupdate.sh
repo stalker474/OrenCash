@@ -13,9 +13,9 @@ tar xvzf boost_1_65_1.tar.gz
 echo "Cleaning up"
 rm boost_1_65_1.tar.gz 
 cd boost_1_65_1
-sh bootstrap.sh --prevfix=/usr/
+sh bootstrap.sh --prefix=/usr/
 ./b2  --with-serialization
-./b2 install
+sudo ./b2 install
 cd ..
 echo "boost up to date"
 
@@ -23,9 +23,9 @@ echo "Compiling rpclib..."
 cd rpclib
 mkdir build
 cd build
-cmake ..
+cmake sudo cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr ..
 make
-make install
+sudo make install
 cd ..
 cd ..
 echo "rpclib up to date"
@@ -33,7 +33,7 @@ echo "rpclib up to date"
 echo "Compiling cryptopp..."
 cd cryptopp
 make
-make install
+sudo make install
 cd ..
 echo "cryptopp up to date"
 
@@ -43,9 +43,10 @@ git submodule init
 git submodule update
 mkdir build
 cd build
-cmake -DBUILD_SSL=OFF ..
+sudo cmake -DCMAKE_INSTALL_PREFIX:PATH=/usr/lib -DBUILD_SSL=OFF ..
 make
-make install
+sudo make install
+sudo mv librestbed.a /usr/lib
 cd ..
 cd ..
 echo "restbed up to date"
