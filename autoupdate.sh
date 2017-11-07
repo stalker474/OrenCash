@@ -1,5 +1,5 @@
 #!/bin/bash
-
+set -e #exit on error
 echo "Getting dependencies..."
 
 git submodule init
