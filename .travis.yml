@@ -27,8 +27,6 @@ before_script:
   - if [ -n "$COMPILERCXX" ]; then export CXX=$COMPILERCXX; fi 
       
 install:
-  - wget https://cmake.org/files/v3.9/cmake-3.9.2-Linux-x86_64.sh
-  - sh cmake-3.9.2-Linux-x86_64.sh -- --skip-license --prefix=/usr
 
 script:
   - sh autoupdate.sh
