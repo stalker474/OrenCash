@@ -33,9 +33,6 @@ include_directories( ${boost-serialization_INCLUDE} )
 find_package( ed25519 REQUIRED )
 include_directories( ${ed25519_INCLUDE} )
 
-find_package( sqlite3 REQUIRED )
-include_directories( ${sqlite3_INCLUDE} )
-
 find_package( restbed REQUIRED )
 include_directories( ${restbed_INCLUDE} )
 link_directories(${restbed_INCLUDE}/../)
@@ -53,6 +50,9 @@ include_directories( ${libodb_INCLUDE} )
 
 find_package( libodb-sqlite REQUIRED )
 include_directories( ${libodb-sqlte_INCLUDE} )
+
+find_package( sqlite3 REQUIRED )
+include_directories( ${sqlite3_INCLUDE} )
 
 endif(BUILD_WITH_ODB)
 
