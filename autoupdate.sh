@@ -18,7 +18,7 @@ cd rpclib
 #fixing the too high requirement for cmake in travis-ci by removing the minimum requirmeent line
 tail -n +2 CMakeLists.txt > CMakeLists.txt.temp
 cat CMakeLists.txt.temp > CMakeLists.txt
-rm CakeLists.txt.temp
+rm CMakeLists.txt.temp
 #end fix
 mkdir -p build
 cd build
