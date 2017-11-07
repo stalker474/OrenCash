@@ -1,6 +1,5 @@
 language: cpp
 os : linux
-sudo: required
 
 matrix:
   include:
@@ -29,10 +28,10 @@ before_script:
       
 install:
   - wget https://cmake.org/files/v3.9/cmake-3.9.2-Linux-x86_64.sh
-  - sudo sh cmake-3.9.2-Linux-x86_64.sh -- --skip-license --prefix=/usr
+  - sh cmake-3.9.2-Linux-x86_64.sh -- --skip-license --prefix=/usr
 
 script:
-  - sudo sh autoupdate.sh
+  - sh autoupdate.sh
   - cd orencash/src
   - mkdir build ; cd build
   - cmake -DCMAKE_INSTALL_PREFIX=../install ..
