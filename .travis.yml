@@ -1,6 +1,6 @@
 language: cpp
 os : linux
-compiler: clang
+compiler: g++
 sudo: required
 
 matrix:
