@@ -11,6 +11,9 @@ Mandatory:
 * [ed25519](https://github.com/orlp/ed25519) - used to complete the cryptographic library with key validation
 * [restbed](https://github.com/Corvusoft/restbed) - used for the rest api
 * [rpclib](https://github.com/rpclib/rpclib) - used for the node connections
+
+Optional :
+
 * [sqlite3](https://www.sqlite.org/) - used with odb for database storage
 * [odb](https://www.codesynthesis.com/products/odb/download.xhtml) - used for easy object persistency implementation
 
@@ -20,10 +23,12 @@ Mandatory:
 
 I'm not working with linux so feel free to complete this information.
 
-* Download and install the latest versions of the dependencies
-* Link the cmake configuration to the right include and libs paths
+* clone the repository
+* install and compile dependencies with sudo autoupdate.sh
 * Build OrenCash with cmake
 * Use PersisentObjects.sql located in dependencies.zip to generate the sqlite database.
+
+So far the auto config tools are working without persistency, meaning you'll have to get your hands dirty to get ODB et sqlite3 and compile the project in -DBUILD_WITH_ODB=ON.
 
 #### Windows
 
