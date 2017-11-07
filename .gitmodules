@@ -7,6 +7,3 @@
 [submodule "orencash/src/dependencies/restbed"]
 	path = orencash/src/dependencies/restbed
 	url = https://github.com/Corvusoft/restbed
-[submodule "orencash/src/dependencies/rpclib"]
-	path = orencash/src/dependencies/rpclib
-	url = https://github.com/rpclib/rpclib
