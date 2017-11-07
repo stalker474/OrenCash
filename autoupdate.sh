@@ -17,7 +17,7 @@ echo "Compiling rpclib..."
 cd rpclib
 #fixing the too high requirement for cmake in travis-ci by removing the minimum requirmeent line
 tail -n +2 CMakeLists.txt > CMakeLists.txt.temp
-cat CMakeLists.txt.temp > CMakeLists.txt
+sed -i '1s/^/cmake_minimum_required(VERSION 3.0.0 FATAL_ERROR)/' CMakeLists.txt.temp > CMakeLists.txt
 rm CMakeLists.txt.temp
 #end fix
 mkdir -p build
