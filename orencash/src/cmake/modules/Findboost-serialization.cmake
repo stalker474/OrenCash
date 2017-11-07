@@ -1,4 +1,4 @@
-find_path( boost-serialization_INCLUDE serialization.hpp HINTS "${PROJECT_SOURCE_DIR}/dependencies/boost_1_65_1/boost/serialization" )
+find_path( boost-serialization_INCLUDE serialization.hpp HINTS "${PROJECT_SOURCE_DIR}/dependencies/boost/boost/serialization" )
 
 if ( boost-serialization_INCLUDE )
     set( BOOST-SERIALIZATION_FOUND TRUE )
