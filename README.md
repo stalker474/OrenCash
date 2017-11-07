@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.org/stalker474/OrenCash.svg?branch=master)](https://travis-ci.org/stalker474/OrenCash)
 # OrenCash
 A simplistic crypto-currency implementation inspired by Naivecoin project
 Original project : https://github.com/conradoqg/naivecoin
