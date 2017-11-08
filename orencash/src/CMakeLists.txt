@@ -61,7 +61,6 @@ include_directories(${LIBODB_BIN_INCLUDE_DIR})
 endif()
 
 link_directories(
-${boost-serialization_LIBRARY}
 ${cryptopp_LIBRARY}
 ${restbed_LIBRARY}
 ${rpclib_LIBRARY}
@@ -96,7 +95,7 @@ if(NOT MSVC)
     set(THREADS_PREFER_PTHREAD_FLAG ON)
     find_package(Threads REQUIRED)
     target_link_libraries(${PROJECT_NAME} Threads::Threads)
-    target_link_libraries(${PROJECT_NAME} libboost_serialization.a libcryptopp.a librpc.a librestbed.a)
+    target_link_libraries(${PROJECT_NAME} libboost_serialization.a libboost_wserialization.a libcryptopp.a librpc.a librestbed.a)
     if(BUILD_WITH_ODB)
         target_link_libraries(${PROJECT_NAME} libodb.a libodb-sqlite.a)
     endif(BUILD_WITH_ODB)
