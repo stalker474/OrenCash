@@ -10,16 +10,6 @@ if(NOT CMAKE_BUILD_TYPE)
   message(STATUS "Build type not specified: Use Release by default.")
 endif(NOT CMAKE_BUILD_TYPE)
 
-# Definition of Macros
-add_definitions(
-   -DNDEBUG 
-   -D_CONSOLE 
-   -DWINVER=0x0A00 
-   -D_WIN32_WINNT=0x0A00 
-   -DUNICODE
-   -D_UNICODE
-)
-
 if( NOT WIN32 )
     string( ASCII 27 Esc )
 
@@ -122,3 +112,6 @@ set( MANIFEST_SOURCES
 )
 
 endif(NOT BUILD_WITH_ODB)
+message("CONFIGURATION")
+message("Build type : ${CMAKE_BUILD_TYPE}")
+message("Compiler id : ${CMAKE_CXX_COMPILER_ID}")

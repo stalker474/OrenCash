@@ -6,12 +6,6 @@ git submodule init
 git submodule update
 
 cd orencash/src/dependencies
-echo "Compiling boost..."
-cd boost
-sh bootstrap.sh --prefix=/usr/
-./b2  --with-serialization > /dev/null
-cd ..
-echo "boost up to date"
 
 echo "Compiling rpclib..."
 cd rpclib
@@ -44,7 +38,6 @@ echo "restbed up to date"
 echo "preparing libraries"
 cd ..
 mkdir -p "libs"
-mv dependencies/boost/stage/lib/*.a libs/
 mv dependencies/cryptopp/*.a libs/
 mv dependencies/restbed/build/*.a libs/
 mv dependencies/rpclib/build/*.a libs/

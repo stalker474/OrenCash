@@ -13,6 +13,7 @@ set(OUTPUT_RELEASE Release/bin)
 #
 option( BUILD_WITH_ODB   "Build persistent version."        OFF )
 option( BUILD_TESTS    "Build all available test suites."   OFF )
+option( ENABLE_COVERAGE "Generate coverage information."    OFF )
 #
 # Configuration
 #
@@ -66,12 +67,23 @@ ${restbed_LIBRARY}
 ${rpclib_LIBRARY}
 )
 
+if(BUILD_TESTS)
+    add_subdirectory(tests)
+endif()
+
 # Add executable to build.
 add_executable(${PROJECT_NAME} 
    ${MANIFEST_SOURCES}
    ${MANIFEST_HEADERS}
    ${ED25519_INCLUDE}
 )
+
+if(ENABLE_COVERAGE)
+    include(CodeCoverage)
+    setup_target_for_coverage(${PROJECT_NAME}_coverage plop coverage)
+    set(CMAKE_CXX_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
+    set(CMAKE_C_FLAGS "-g -O0 -fprofile-arcs -ftest-coverage")
+endif()
 
 if(MSVC)
     target_link_libraries(${PROJECT_NAME} ed25519.lib cryptlib.lib restbed.lib rpc.lib )
