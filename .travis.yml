@@ -1,9 +1,10 @@
-language: cpp
+language: c++
+os : linux
 sudo : required
+dist: trusty
 
 matrix:
   include:
-    - os: linux
       compiler: gcc
       addons:
         apt:
@@ -14,7 +15,6 @@ matrix:
       env:
       - COMPILERCXX="g++-5"
       - COMPILERC="gcc-5"
-    - os: linux
       compiler: clang
       addons:
         apt:
