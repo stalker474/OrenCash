@@ -29,6 +29,8 @@ before_script:
 install:
   - wget https://cmake.org/files/v3.9/cmake-3.9.2-Linux-x86_64.sh
   - sudo sh cmake-3.9.2-Linux-x86_64.sh -- --skip-license --prefix=/usr
+  - sudo apt-get update -qq
+  - sudo apt-get install -y libboost-dev libboost-serialization-dev
 script:
   - sh autoupdate.sh
   - cd orencash/src
