@@ -47,3 +47,4 @@ mkdir -p "libs"
 mv dependencies/boost/stage/lib/*.a libs/
 mv dependencies/cryptopp/*.a libs/
 mv dependencies/restbed/build/*.a libs/
+mv dependencies/rpclib/build/*.a libs/

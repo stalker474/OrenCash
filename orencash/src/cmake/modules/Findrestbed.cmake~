@@ -1,10 +1,9 @@
 find_path( restbed_INCLUDE restbed HINTS "${PROJECT_SOURCE_DIR}/dependencies/restbed/source" )
-find_path( restbed_LIBRARY librestbed.a HINTS "${PROJECT_SOURCE_DIR}/libs" )
-if ( restbed_INCLUDE AND restbed_LIBRARY)
+
+if ( restbed_INCLUDE )
     set( RESTBED_FOUND TRUE )
 
     message( STATUS "${Green}Found restbed include at: ${restbed_INCLUDE}${Reset}" )
-    message( STATUS "${Green}Found restbed library at: ${restbed_LIBRARY}${Reset}" )
 else ( )
     message( FATAL_ERROR "${Red}Failed to locate restbed dependency.${Reset}" )
 endif ( )

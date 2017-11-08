@@ -59,6 +59,13 @@ if(NOT MSVC)
 include_directories(${LIBODB_BIN_INCLUDE_DIR})
 endif()
 
+link_directories(
+${boost-serialization_LIBRARY}
+${cryptopp_LIBRARY}
+${restbed_LIBRARY}
+${rpclib_LIBRARY}
+)
+
 # Add executable to build.
 add_executable(${PROJECT_NAME} 
    ${MANIFEST_SOURCES}
@@ -72,8 +79,6 @@ if(MSVC)
         target_link_libraries(${PROJECT_NAME} sqlite3.lib odb.lib odb-sqlite.lib )
     endif(BUILD_WITH_ODB)
 endif(MSVC)
-
-link_directories(${PROJECT_SOURCE_DIR}/libs)
 
 if(NOT MSVC)
     set(THREADS_PREFER_PTHREAD_FLAG ON)
