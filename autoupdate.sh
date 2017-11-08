@@ -40,3 +40,10 @@ make
 cd ..
 cd ..
 echo "restbed up to date"
+
+echo "preparing libraries"
+cd ..
+mkdir -p "libs"
+mv dependencies/boost/stage/lib/*.a libs/
+mv dependencies/cryptopp/*.a libs/
+mv dependencies/restbed/build/*.a libs/

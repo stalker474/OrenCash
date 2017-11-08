@@ -35,7 +35,6 @@ include_directories( ${ed25519_INCLUDE} )
 
 find_package( restbed REQUIRED )
 include_directories( ${restbed_INCLUDE} )
-link_directories(${restbed_INCLUDE}/../)
 
 find_package( rpclib REQUIRED )
 include_directories( ${rpclib_INCLUDE} )
@@ -73,6 +72,8 @@ if(MSVC)
         target_link_libraries(${PROJECT_NAME} sqlite3.lib odb.lib odb-sqlite.lib )
     endif(BUILD_WITH_ODB)
 endif(MSVC)
+
+link_directories(${PROJECT_SOURCE_DIR}/libs)
 
 if(NOT MSVC)
     set(THREADS_PREFER_PTHREAD_FLAG ON)
